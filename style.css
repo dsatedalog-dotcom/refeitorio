@@ -1,4 +1,6 @@
-/* Configurações Globais */
+/* =========================================
+   CONFIGURAÇÕES GERAIS E RESET
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -6,175 +8,234 @@
 }
 
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
     background: #2c2c54;
     color: #333;
+    line-height: 1.6;
 }
 
 header {
     background: #1e1e3f;
     color: white;
-    padding: 25px;
+    padding: 30px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Container Principal - Ajustado para ser responsivo */
+/* =========================================
+   CONTAINERS (TELA INICIAL E FORMULÁRIO)
+   ========================================= */
 .container {
     background: white;
-    margin: 2rem auto;
-    padding: 2rem;
-    border-radius: 15px;
-    width: 90%; /* Ocupa quase tudo em telas pequenas/médias */
-    max-width: 600px; /* Não deixa ficar largo demais em monitores */
-    min-height: 300px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    margin: 40px auto;
+    padding: 2.5rem;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 800px; /* Aumentado para acomodar os cards maiores */
+    min-height: 400px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
-/* Estado de troca de tela */
 .centralizado {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-align: center;
 }
 
 .hidden {
     display: none !important;
 }
 
-/* Estilo do Botão Gigante Inicial */
+/* =========================================
+   BOTÕES E INPUTS
+   ========================================= */
 .botao-principal {
-    padding: 40px 20px;
-    font-size: 24px;
+    padding: 50px 30px;
+    font-size: 28px;
     font-weight: bold;
     background: #2c2c54;
     color: white;
-    border: 2px solid #474787;
-    border-radius: 20px;
+    border: 3px solid #474787;
+    border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
     width: 100%;
+    max-width: 500px;
 }
 
 .botao-principal:active {
-    transform: scale(0.95);
+    transform: scale(0.96);
     background: #474787;
 }
 
-/* Formulário e Linhas */
 label {
     display: block;
-    margin-top: 15px;
+    margin: 25px 0 10px 0;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    color: #1e1e3f;
 }
 
 .linha {
     display: flex;
     width: 100%;
-    gap: 12px;
-    margin: 10px 0;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
 input[type="text"] {
     flex: 1;
-    padding: 12px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px; /* Evita zoom automático no iOS */
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 18px; /* Evita zoom automático no tablet/celular */
 }
 
 #btnValidar {
-    padding: 0 20px;
+    padding: 0 25px;
     background-color: #474787;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
+    font-weight: bold;
     cursor: pointer;
+    font-size: 16px;
 }
 
-/* Grid de Cards - O "pulo do gato" para Tablets */
+/* =========================================
+   SISTEMA DE CARDS GIGANTES
+   ========================================= */
 .opcoes-refeicao {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Duas colunas lado a lado */
-    gap: 20px;
-    margin: 20px 0;
+    /* No tablet/desktop, ficam lado a lado */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
 }
 
 .card {
-    border: 2px solid #eee;
+    border: 3px solid #eee;
     display: flex;
     flex-direction: column;
-    padding: 15px;
-    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+    
+    /* PROPORÇÃO SOLICITADA:
+       Aumento vertical (padding 60px) é o dobro do horizontal (padding 30px).
+       Altura mínima robusta para destacar o card. */
+    padding: 60px 30px; 
+    min-height: 450px; 
+    
+    border-radius: 25px;
     cursor: pointer;
-    text-align: center;
-    transition: 0.2s;
-    background: #f9f9f9;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: #fdfdfd;
+    position: relative;
 }
 
 .card input {
-    display: none; /* Esconde o radio real */
+    position: absolute;
+    opacity: 0; /* Esconde o radio mas mantém funcional */
 }
 
 .card img {
-    width: 100%;
-    max-width: 120px;
+    width: 90%;
+    max-width: 200px;
     height: auto;
-    margin: 0 auto 10px;
+    margin-bottom: 30px;
 }
 
-/* Estilo do Card Selecionado */
+.card span {
+    font-size: 2rem; /* Fonte proporcionalmente maior */
+    font-weight: 800;
+    color: #2c2c54;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Estilo quando o Card está Selecionado */
 .card:has(input:checked) {
     background-color: #2c2c54;
-    color: white;
-    border-color: #2c2c54;
-    transform: translateY(-5px);
+    border-color: #474787;
+    transform: scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* Botão de Registrar */
+.card:has(input:checked) span {
+    color: white;
+}
+
+/* Inversão de cor da imagem se necessário (opcional) */
+.card:has(input:checked) img {
+    filter: brightness(0) invert(1);
+}
+
+/* =========================================
+   RODAPÉ E SUBMISSÃO
+   ========================================= */
 .botaoSubmit {
-    margin-top: 30px;
+    margin-top: 40px;
+    width: 100%;
 }
 
 #btnSubmit {
     width: 100%;
-    padding: 15px;
+    padding: 20px;
     background-color: #2c2c54;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
     cursor: pointer;
+    box-shadow: 0 5px 15px rgba(44, 44, 84, 0.4);
 }
 
-/* --- RESPONSIVIDADE ESPECÍFICA --- */
+#btnSubmit:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}
 
-/* Tablets em modo Retrato (Vertical) */
+/* =========================================
+   RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================= */
+
+/* Tablets em modo Retrato e Celulares Grandes */
 @media (max-width: 768px) {
     .container {
         width: 95%;
         padding: 1.5rem;
+        margin: 20px auto;
     }
-    
-    .botao-principal {
-        font-size: 20px;
+
+    .opcoes-refeicao {
+        grid-template-columns: 1fr; /* Empilha os cards gigantes */
+    }
+
+    .card {
+        min-height: 400px;
+        padding: 50px 25px;
+    }
+
+    .card span {
+        font-size: 1.8rem;
     }
 }
 
 /* Celulares Pequenos */
 @media (max-width: 480px) {
-    .opcoes-refeicao {
-        grid-template-columns: 1fr; /* No celular, um card abaixo do outro */
-    }
-    
     .linha {
         flex-direction: column;
     }
-    
+
     #btnValidar {
-        padding: 12px;
+        padding: 15px;
+    }
+
+    .botao-principal {
+        font-size: 20px;
+        padding: 30px 15px;
     }
 }
