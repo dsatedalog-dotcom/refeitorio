@@ -18,10 +18,10 @@ header {
 
 .container {
     background: white;
-    margin: 20px auto;
-    padding: 30px;
+    margin: 20rem auto;
+    padding: 5rem;
     border-radius: 15px;
-    max-width: 500px;
+    max-width: 500rem;
 }
 
 .centralizado {
@@ -33,7 +33,7 @@ header {
 
 .botao-principal {
     padding: 30px;
-    font-size: 20px;
+    font-size: 20rem;
     background: #2c2c54;
     color: white;
     border: none;
