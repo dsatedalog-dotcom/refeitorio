@@ -115,6 +115,7 @@ span {
     font-size: medium;
     border-radius: 5px;
     width: 30%;
+    cursor: pointer;
 }
 input {
     width: 80%;
@@ -126,6 +127,7 @@ input {
     gap: 10px;
     margin: 0 auto;
     justify-content: center;
+    cursor: pointer;
 }
 #btnSubmit{
     padding: 0.8rem;
