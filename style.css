@@ -34,7 +34,7 @@ header {
 }
 
 .centralizado {
-    min-height: 800px;
+    min-height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
