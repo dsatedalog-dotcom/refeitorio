@@ -1,3 +1,7 @@
+
+/** {
+    outline: 1px solid red;
+}*/
 * {
     margin: 0;
     padding: 0;
@@ -18,27 +22,28 @@ header {
 
 .container {
     background: white;
-    margin: 20rem auto;
-    padding: 5rem;
+    margin: auto;
+    padding: 2rem;
     border-radius: 15px;
-    max-width: 500rem;
+    width: 100%;
+    max-width: 40rem;
 }
 
 .centralizado {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 .botao-principal {
     padding: 30px;
-    font-size: 20rem;
+    font-size: 20px;
     background: #2c2c54;
     color: white;
     border: none;
     border-radius: 10px;
-    cursor: pointer;
 }
 
 .hidden {
@@ -52,6 +57,9 @@ header {
     margin: 0 auto;
     justify-content: center;
  
+}
+.linha input{
+    flex:1;
 }
 
 .opcoes-refeicao {
@@ -77,8 +85,9 @@ header {
 }
 
 .card img {
-    width: 120px;
-    height: 80px;
+    width: 100%;
+    max-width: 10rem;
+    height: auto;
 }
 
 .card input:checked + img {
@@ -114,12 +123,11 @@ span {
     color: #FFFFFF;
     font-size: medium;
     border-radius: 5px;
-    width: 30%;
-    cursor: pointer;
+    width: auto;
 }
-input {
-    width: 80%;
-}
+/*input {
+    width: 100%;
+}*/
 .botaoSubmit{
     padding: 2rem 0 0 0;
     display: flex;
@@ -127,7 +135,6 @@ input {
     gap: 10px;
     margin: 0 auto;
     justify-content: center;
-    cursor: pointer;
 }
 #btnSubmit{
     padding: 0.8rem;
@@ -141,3 +148,4 @@ input {
     display: flex;
    justify-content: center; 
 }
+
