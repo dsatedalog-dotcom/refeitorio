@@ -131,6 +131,18 @@ form.addEventListener("submit", (e) => {
     const matricula = document.getElementById("matricula").value.trim();
     const refeicaoSelecionada = document.querySelector('input[name="refeicao"]:checked');
 
+    // ---- VALIDAÇÃO DA MATRÍCULA -----
+    const nomeValido = nomeUsuario.innerText.trim();
+    const erroNomes = ["", "Informe a matrícula", "Não encontrado", "VALIDE A MATRÍCULA"];
+
+    if (erroNomes.includes(nomeValido)) {
+        mensagem.innerText = "VALIDE A MATRÍCULA ANTES DE ENVIAR";
+        mensagem.style.color = "red";
+        nomeUsuario.innerText = "VALIDE A MATRÍCULA";
+        nomeUsuario.style.color = "red";
+        return; 
+    }
+
     if (!matricula || !refeicaoSelecionada) {
         mensagem.innerText = "Preencha todos os campos";
         mensagem.style.color = "red";
